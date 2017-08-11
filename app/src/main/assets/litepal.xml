@@ -1,0 +1,9 @@
+<litepal>
+    <dbname value="cool_weather"/>
+    <version value="1"/>
+    <list>
+        <mapping class="com.qi.qiweather.db.City"/>
+        <mapping class="com.qi.qiweather.db.County"/>
+        <mapping class="com.qi.qiweather.db.Province"/>
+    </list>
+</litepal>
