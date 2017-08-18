@@ -26,7 +26,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.qi.qiweather.gson.Forecast;
 import com.qi.qiweather.gson.Weather;
 import com.qi.qiweather.service.AutoUpdateService;
+import com.qi.qiweather.util.Bind;
 import com.qi.qiweather.util.HttpUtil;
+import com.qi.qiweather.util.MyGetId;
 import com.qi.qiweather.util.Utility;
 
 import java.io.IOException;
@@ -41,9 +43,11 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView titleCity, titleUpdateTime, dereeText, weatherInfoText, aqiText, pm25Text, comfortText, carWashText, sportText;
     private LinearLayout forecastLayout;
     public SwipeRefreshLayout swipeRefresh;
+    @Bind(R.id.back_pic)
     private ImageView iv_bankGround;
 
     public DrawerLayout drawerLayout;
+    @Bind(R.id.nav_btn)
     private Button navBtn;
     public String weatherId;
     @Override
@@ -56,6 +60,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_weather);
 
+        MyGetId.buid(this);
         init();
         navBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +71,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void init() {
-        iv_bankGround= (ImageView) findViewById(R.id.back_pic);
+//        iv_bankGround= (ImageView) findViewById(R.id.back_pic);
         weatherLayout = (ScrollView) findViewById(R.id.weather_layout);
         titleCity = (TextView) findViewById(R.id.title_city);
         titleUpdateTime = (TextView) findViewById(R.id.title_update_time);
@@ -80,7 +85,7 @@ public class WeatherActivity extends AppCompatActivity {
         sportText = (TextView) findViewById(R.id.sport_text);
         swipeRefresh= (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
-        navBtn= (Button) findViewById(R.id.nav_btn);
+//        navBtn= (Button) findViewById(R.id.nav_btn);
         drawerLayout= (DrawerLayout) findViewById(R.id.draw_layout);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String weatherStr = prefs.getString("weather", null);
